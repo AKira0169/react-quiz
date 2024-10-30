@@ -68,24 +68,7 @@ function QuizProvider({ children }) {
       .then((data) => dispatch({ type: 'dataReceived', payload: data }))
       .catch((err) => dispatch({ type: 'dataFailed' }));
   }, []);
-  function newAnswer(index) {
-    dispatch({ type: 'newAnswer', payload: index });
-  }
-  function tick() {
-    dispatch({ type: 'tick' });
-  }
-  function start() {
-    dispatch({ type: 'start' });
-  }
-  function next() {
-    dispatch({ type: 'next' });
-  }
-  function finish() {
-    dispatch({ type: 'finish' });
-  }
-  function restart() {
-    dispatch({ type: 'restart' });
-  }
+
   return (
     <QuizContext.Provider
       value={{
@@ -98,12 +81,7 @@ function QuizProvider({ children }) {
         points,
         highScore,
         secondsRemaining,
-        newAnswer,
-        tick,
-        next,
-        finish,
-        restart,
-        start,
+        dispatch,
       }}>
       {children}
     </QuizContext.Provider>
